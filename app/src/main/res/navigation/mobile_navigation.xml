@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_camera">
+
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.example.camera2.ui.camera.CameraFragment"
+        android:label="@string/camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/navigation_gallery"
+        android:name="com.example.camera2.ui.gallery.GalleryFragment"
+        android:label="@string/gallery"
+        tools:layout="@layout/fragment_gallery">
+
+        <action
+            android:id="@+id/actionPhotoFilter"
+            app:destination="@+id/nav_photo_filter">
+            <argument
+                android:name="photo"
+                app:argType="com.example.camera2.Photo" />
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_photo_filter"
+        android:name="com.example.camera2.ui.gallery.PhotoFilterFragment"
+        android:label="Edit photo"
+        tools:layout="@layout/fragment_photo_filter">
+
+        <argument
+            android:name="photo"
+            android:defaultValue="@null"
+            app:argType="com.example.camera2.Photo"
+            app:nullable="true"/>
+
+
+    </fragment>
+
+
+
+
+
+</navigation>
